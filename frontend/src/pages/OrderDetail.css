@@ -1,0 +1,320 @@
+/* ── Order Detail Page ───────────────────────────────── */
+
+.od-page {
+  background: var(--surface-2);
+  min-height: 100vh;
+  padding: 2rem 0 4rem;
+}
+
+/* ── Success banner ──────────────────────────────────── */
+.od-success-banner {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--success);
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.od-success-icon {
+  font-size: 2rem;
+  color: var(--success);
+  flex-shrink: 0;
+}
+
+.od-success-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--primary);
+  margin: 0 0 0.2rem;
+}
+
+.od-success-sub {
+  font-size: 0.875rem;
+  color: var(--muted);
+  margin: 0;
+}
+
+/* ── Two-column layout ───────────────────────────────── */
+.od-layout {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.od-left {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* ── Section card ────────────────────────────────────── */
+.od-section {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+}
+
+.od-section--cancelled {
+  border-left: 4px solid var(--danger);
+}
+
+.od-section-title {
+  font-size: 0.875rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+/* ── Status badge ────────────────────────────────────── */
+.od-status-badge {
+  display: inline-block;
+  padding: 0.2rem 0.65rem;
+  border-radius: 50px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.status-processing   { background: var(--warning-bg);   color: var(--warning); }
+.status-confirmed    { background: var(--blue-light);   color: var(--blue); }
+.status-shipped      { background: var(--purple-bg);    color: var(--purple-text); }
+.status-outdelivery  { background: var(--pink-bg);      color: var(--pink-text); }
+.status-delivered    { background: var(--success-bg);   color: var(--success); }
+.status-cancelled    { background: var(--danger-bg);    color: var(--danger); }
+
+/* ── Progress tracker ────────────────────────────────── */
+.od-tracker {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+}
+
+.od-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  flex: 1;
+}
+
+.od-step-dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--border);
+  border: 2.5px solid var(--border);
+  transition: background 0.2s, border-color 0.2s;
+  z-index: 1;
+  flex-shrink: 0;
+}
+
+.od-step--done .od-step-dot {
+  background: var(--success);
+  border-color: var(--success);
+}
+
+.od-step--active .od-step-dot {
+  background: var(--primary);
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px var(--tracker-step-glow);
+}
+
+.od-step-line {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  width: 100%;
+  height: 2px;
+  background: var(--border);
+  z-index: 0;
+}
+
+.od-step-line--done {
+  background: var(--success);
+}
+
+.od-step-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--muted);
+  margin-top: 0.4rem;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.od-step--done  .od-step-label { color: var(--success); }
+.od-step--active .od-step-label { color: var(--primary); font-weight: 700; }
+
+/* ── Order items ─────────────────────────────────────── */
+.od-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.od-item-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.od-item-img {
+  width: 60px;
+  height: 78px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  flex-shrink: 0;
+  border: 1px solid var(--border);
+}
+
+.od-item-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.od-item-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.od-item-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-top: 0.25rem;
+}
+
+.od-item-price {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+/* ── Address ─────────────────────────────────────────── */
+.od-address {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.od-address p {
+  font-size: 0.875rem;
+  color: var(--text-color);
+  margin: 0;
+}
+
+/* ── Summary sidebar ─────────────────────────────────── */
+.od-summary {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  position: sticky;
+  top: 80px;
+}
+
+.od-price-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-bottom: 1.25rem;
+}
+
+.od-price-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.875rem;
+  color: var(--text-color);
+}
+
+.od-price-row--total {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--primary);
+  border-top: 1.5px solid var(--border);
+  padding-top: 0.75rem;
+  margin-top: 0.2rem;
+}
+
+/* ── Meta info ───────────────────────────────────────── */
+.od-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.od-meta-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8125rem;
+  color: var(--muted);
+}
+
+.od-meta-row strong {
+  color: var(--text-color);
+  font-weight: 700;
+}
+
+/* ── CTA buttons ─────────────────────────────────────── */
+.od-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.od-btn {
+  width: 100%;
+  text-align: center;
+  padding: 0.7rem;
+  font-size: 0.9rem;
+}
+
+/* ── Error state ─────────────────────────────────────── */
+.od-error {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  text-align: center;
+  padding: 3rem 2rem;
+}
+
+.od-error p {
+  color: var(--muted);
+  margin-bottom: 1.25rem;
+}
+
+/* ── Responsive ──────────────────────────────────────── */
+@media (max-width: 860px) {
+  .od-layout {
+    grid-template-columns: 1fr;
+  }
+  .od-summary { position: static; }
+}
+
+@media (max-width: 560px) {
+  .od-success-banner { flex-direction: column; align-items: flex-start; gap: 0.6rem; }
+  .od-tracker { overflow-x: auto; }
+}

@@ -1,0 +1,105 @@
+/* ── Wishlist Page ──────────────────────────────────── */
+
+.wishlist-page {
+  background: var(--surface-2);
+  min-height: 100vh;
+  padding: 2rem 0 4rem;
+}
+
+.wishlist-header {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 1.75rem;
+}
+
+.wishlist-header h1 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--primary);
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.wishlist-count {
+  font-size: var(--font-size-sm);
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.wishlist-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.25rem;
+}
+
+/* Wishlist card inherits .product-listing-card styles;
+   overlay remove button behaviour is specific below */
+
+.wishlist-remove-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--card-overlay-btn-bg);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1rem;
+  color: var(--accent);
+  transition: color var(--transition), background var(--transition), transform var(--transition);
+  backdrop-filter: blur(4px);
+}
+
+.wishlist-remove-btn:hover {
+  transform: scale(1.15);
+  background: var(--card-overlay-btn-bg-hover);
+  color: var(--danger);
+}
+
+/* Empty */
+.wishlist-empty {
+  grid-column: 1 / -1;
+  background: var(--surface);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.wishlist-empty svg {
+  font-size: 3.5rem;
+  color: var(--border);
+  margin-bottom: 1.25rem;
+}
+
+.wishlist-empty h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.wishlist-empty p {
+  color: var(--muted);
+  font-size: var(--font-size-sm);
+  margin-bottom: 1.5rem;
+}
+
+/* Loading */
+.wishlist-spinner {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  padding: 4rem 0;
+}
+
+@media (max-width: 480px) {
+  .wishlist-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+}
+
+/* Made with Bob */

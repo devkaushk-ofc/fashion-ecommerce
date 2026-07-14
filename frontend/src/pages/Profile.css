@@ -1,0 +1,207 @@
+/* ── Profile Page ───────────────────────────────────── */
+
+.profile-page {
+  background: var(--surface-2);
+  min-height: 100vh;
+  padding: 2rem 0 4rem;
+}
+
+.profile-layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+/* ── Sidebar ────────────────────────────────────────── */
+.profile-sidebar {
+  background: var(--surface);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  position: sticky;
+  top: 80px;
+}
+
+.profile-avatar-section {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--blue) 100%);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  color: #fff;
+}
+
+.profile-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0 auto 0.75rem;
+  border: 2px solid rgba(255,255,255,.35);
+}
+
+.profile-name {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.15rem;
+}
+
+.profile-email {
+  font-size: var(--font-size-xs);
+  opacity: 0.75;
+}
+
+.profile-nav {
+  padding: 0.5rem 0;
+}
+
+.profile-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.75rem 1.25rem;
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--text-color);
+  cursor: pointer;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  font-family: inherit;
+  transition: color var(--transition), background var(--transition);
+  border-left: 3px solid transparent;
+}
+
+.profile-nav-item:hover { background: var(--surface-2); color: var(--accent); }
+.profile-nav-item.active {
+  color: var(--accent);
+  background: rgba(233,69,96,.06);
+  border-left-color: var(--accent);
+  font-weight: 700;
+}
+
+/* ── Main content ───────────────────────────────────── */
+.profile-main {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.profile-card {
+  background: var(--surface);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.profile-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.1rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.profile-card-header h2 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 0;
+}
+
+.profile-edit-btn {
+  background: none;
+  border: 1.5px solid var(--border);
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  color: var(--text-color);
+  transition: all var(--transition);
+}
+
+.profile-edit-btn:hover { border-color: var(--primary); color: var(--primary); }
+
+.profile-card-body { padding: 1.5rem; }
+
+/* Form grid */
+.profile-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.1rem 1.5rem;
+}
+
+.profile-form-grid .full-width { grid-column: 1 / -1; }
+
+.profile-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.profile-form-group label {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.profile-form-group input,
+.profile-form-group select {
+  padding: 0.65rem 0.9rem;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  font-size: var(--font-size-sm);
+  font-family: inherit;
+  color: var(--text-color);
+  background: var(--input-bg);
+  transition: border-color var(--transition), background-color var(--transition);
+  appearance: none;
+}
+
+.profile-form-group input:focus,
+.profile-form-group select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--focus-ring-indigo-a);
+  background: var(--input-bg);
+}
+
+.profile-form-group input:disabled {
+  background: var(--surface-2);
+  cursor: not-allowed;
+  color: var(--muted);
+}
+
+/* Read-only display */
+.profile-display-value {
+  font-size: var(--font-size-sm);
+  color: var(--text-color);
+  padding: 0.35rem 0;
+}
+
+/* Save button row */
+.profile-save-row {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+/* ── Responsive ─────────────────────────────────────── */
+@media (max-width: 768px) {
+  .profile-layout { grid-template-columns: 1fr; }
+  .profile-sidebar { position: static; }
+  .profile-form-grid { grid-template-columns: 1fr; }
+  .profile-form-grid .full-width { grid-column: 1; }
+}
+
+/* Made with Bob */
